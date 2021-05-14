@@ -1,9 +1,6 @@
 package com.example.housewareshopproject.entity;
 
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import java.sql.Date;
@@ -11,7 +8,7 @@ import java.util.List;
 
 @Entity
 @Data
-@Builder
+//@Builder
 @ToString
 public class Category {
     @Id

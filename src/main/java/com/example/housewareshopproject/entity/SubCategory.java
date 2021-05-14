@@ -1,8 +1,6 @@
 package com.example.housewareshopproject.entity;
 
-import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
@@ -10,7 +8,6 @@ import java.util.List;
 
 @Entity
 @Data
-@Builder
 @ToString
 public class SubCategory {
     @Id
@@ -26,6 +23,7 @@ public class SubCategory {
     @JoinColumn(name = "status_id")
     private StatusSubCategory status;
 
-    @OneToMany(mappedBy = "subCategory", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "subCategory",cascade = CascadeType.ALL)
     private List<Product> products;
+
 }

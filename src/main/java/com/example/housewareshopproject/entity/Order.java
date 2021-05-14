@@ -11,7 +11,7 @@ import java.util.List;
 
 @Entity(name = "order_tbl")
 @Data
-@Builder
+//@Builder
 @ToString
 public class Order {
     @Id

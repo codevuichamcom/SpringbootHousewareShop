@@ -39,129 +39,21 @@
                     </div>
                 </h5>
                 <div class="category">
-                    <a href="#" class="pt-3" style="color: #d71e1e; font-size: 20px">All
+                    <a th:href="@{/products}" class="pt-3" style="color: #d71e1e; font-size: 20px">All
                         Product</a>
+                    <div th:each="category: ${categories}">
+                        <a class="pt-4" th:text="*{category.categoryName}"
+                           th:href="@{'/products?page='+${page}+'&categoryId='+*{category.id}}"
+                           style="color: #8400e7 !important; margin-left: 5px;font-size: 20px">Tools</a>
 
-                    <a class="pt-4" href="#"
-                       style="color: #8400e7 !important; margin-left: 5px;font-size: 20px">Tools</a>
-
-                    <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Hand Tools">
-                        <a class="pl-3 subCategory" href="#">
-                            <li>Hand Tools</li>
+                        <span th:each="subCategory: *{category.subCategories}" class="d-inline-block" tabindex="0"
+                              data-toggle="tooltip" title="Hand Tools">
+                        <a class="pl-3 subCategory"
+                           th:href="@{'/products?page='+${page}+'&subCategoryId='+*{subCategory.id}}">
+                            <li th:text="*{subCategory.subCategoryName}">Hand Tools</li>
                         </a>
-                    </span>
-
-                    <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Tool Parts">
-                        <a class="pl-3 subCategory" href="#">
-                            <li>Tool Parts</li>
-                        </a>
-                    </span>
-
-                    <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Power Tools">
-                        <a class="pl-3 subCategory" href="#">
-                            <li>Power Tools</li>
-                        </a>
-                    </span>
-
-
-                    <a class="pt-4" href="#"
-                       style="color: #8400e7 !important; margin-left: 5px;font-size: 20px">Measurements</a>
-
-                    <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Temperature Instruments">
-                        <a class="pl-3 subCategory" href="#">
-                            <li>Temperature Instruments</li>
-                        </a>
-                    </span>
-
-                    <span class="d-inline-block" tabindex="0" data-toggle="tooltip"
-                          title="Measurement &amp; Analysis Instruments">
-                        <a class="pl-3 subCategory" href="#">
-                            <li>Measurement &amp; Analysis Instruments</li>
-                        </a>
-                    </span>
-
-                    <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Gauging Tool">
-                        <a class="pl-3 subCategory" href="#">
-                            <li>Gauging Tool</li>
-                        </a>
-                    </span>
-
-
-                    <a class="pt-4" href="#"
-                       style="color: #8400e7 !important; margin-left: 5px;font-size: 20px">Improvement</a>
-
-                    <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title=" Bathroom Fixtures">
-                        <a class="pl-3 subCategory" href="#">
-                            <li> Bathroom Fixtures</li>
-                        </a>
-                    </span>
-
-                    <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Kitchen Fixtures ">
-                        <a class="pl-3 subCategory" href="#">
-                            <li>Kitchen Fixtures </li>
-                        </a>
-                    </span>
-
-                    <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Door&amp; Window Part ">
-                        <a class="pl-3 subCategory" href="#">
-                            <li>Door&amp; Window Part </li>
-                        </a>
-                    </span>
-
-                    <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Bag,Box,Bottle">
-                        <a class="pl-3 subCategory" href="#">
-                            <li>Bag,Box,Bottle</li>
-                        </a>
-                    </span>
-
-
-                    <a class="pt-4" href="#"
-                       style="color: #8400e7 !important; margin-left: 5px;font-size: 20px">Lights&amp;Lighting</a>
-
-                    <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Stage Lighting ">
-                        <a class="pl-3 subCategory" href="#">
-                            <li>Stage Lighting </li>
-                        </a>
-                    </span>
-
-                    <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Lighting Bulbs &amp; Tubes">
-                        <a class="pl-3 subCategory" href="#">
-                            <li>Lighting Bulbs &amp; Tubes</li>
-                        </a>
-                    </span>
-
-                    <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title=" Indoor Light">
-                        <a class="pl-3 subCategory" href="#">
-                            <li> Indoor Light</li>
-                        </a>
-                    </span>
-
-
-                    <a class="pt-4" href="#"
-                       style="color: #8400e7 !important; margin-left: 5px;font-size: 20px">Home&amp;Garden</a>
-
-                    <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Kitchen, Dining &amp; Bar">
-                        <a class="pl-3 subCategory" href="#">
-                            <li>Kitchen, Dining &amp; Bar</li>
-                        </a>
-                    </span>
-
-                    <span class="d-inline-block" tabindex="0" data-toggle="tooltip"
-                          title="Household Cleaning Tools &amp; Accessories">
-                        <a class="pl-3 subCategory" href="#">
-                            <li>Household Cleaning Tools &amp; Accessories</li>
-                        </a>
-                    </span>
-
-                    <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Garden Supplies">
-                        <a class="pl-3 subCategory" href="#">
-                            <li>Garden Supplies</li>
-                        </a>
-                    </span>
-
-
-                    <a class="pt-4" href="#"
-                       style="color: #8400e7 !important; margin-left: 5px;font-size: 20px">Others</a>
+                        </span>
+                    </div>
 
 
                 </div>
@@ -174,7 +66,8 @@
                 <div class="alert alert-secondary" role="alert">
                     <form onchange="submitForm()" id="combo" action="#">List of products
                         <i class="fas fa-cubes mr-2 ml-4"></i><a href="#"
-                                                                 class="btn btn-outline-warning" style="color: #ff0707"> Best Match</a>
+                                                                 class="btn btn-outline-warning" style="color: #ff0707">
+                            Best Match</a>
                         <i class="fas fa-filter mr-2 ml-4"></i><a href="#"
                                                                   class="btn btn-outline-primary">Random</a>
                         <i class="fas fa-dollar-sign mr-2 ml-4"></i>
@@ -195,40 +88,21 @@
                 </div>
 
 
-
-
-
-
-                <nav aria-label="Page navigation example">
+                <nav th:if="${totalPage}>1" aria-label="Page navigation example">
                     <ul class="pagination justify-content-end">
-                        <li class="page-item disabled">
-                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-                        </li>
-
-                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-
-                        <li class="page-item "><a class="page-link" href="#">2</a></li>
-
-                        <li class="page-item "><a class="page-link" href="#">3</a></li>
-
-                        <li class="page-item ">
-                            <a class=" page-link" href="#">Next</a>
+                        <li th:each="index: ${#numbers.sequence(1, totalPage)}" class="page-item"
+                            th:classappend="(${page}==*{index})?'active':''">
+                            <a class="page-link" th:href="@{'/products?page='+*{index}" th:text="*{index}">1</a>
                         </li>
                     </ul>
                 </nav>
 
 
-
                 <div class="row mb-5">
-
-
-
-
-
 
                     <!-- Show product -->
 
-                    <div class="col-md-3 mt-4 pt-2">
+                    <div th:each="product : ${products}" class="col-md-3 mt-4 pt-2">
                         <div class="card">
 
 
@@ -236,12 +110,14 @@
                                 <span id="SPAN_2"><i class="fas fa-bolt"></i></span>
                             </div>
 
-                            <a href="./detail.html"><img th:src="@{/images/tools/1_0.jpg}" style="border: 1px solid #ededed;"
+                            <a href="./detail.html"><img th:src="@{'/images/'+*{product.imageUrl}}"
+                                                         style="border: 1px solid #ededed;"
                                                          class="card-img-top pt-4" alt="..."></a>
                             <div class="card-body pt-3">
                                 <a href="#" class="btn btn-outline-danger"><i class="fas fa-cart-plus mr-2"></i>Add to
                                     cart</a>
-                                <a href="./detail.html" class="card-title text-center mb-1 mt-2">Repair Tool</a>
+                                <a href="./detail.html" th:utext="*{product.name}"
+                                   class="card-title text-center mb-1 mt-2">Repair Tool</a>
                                 <p class="text-center my-0" style="color: #f60">$16.61</p>
                                 <!--                                        <p class="text-center my-0">
                                                                                         <fmt:formatNumber value="16.61" type="currency"></fmt:formatNumber>
@@ -252,505 +128,17 @@
 
                     <!-- end -->
 
-                    <!-- Show product -->
-
-                    <div class="col-md-3 mt-4 pt-2">
-                        <div class="card">
-
-                            <div id="DIV_1">
-                                <span id="SPAN_2">11</span>
-                            </div>
-
-
-                            <a href="./detail.html"><img th:src="@{/images/tools/2_0.jpg}" style="border: 1px solid #ededed;"
-                                                         class="card-img-top pt-4" alt="..."></a>
-                            <div class="card-body pt-3">
-                                <a href="#" class="btn btn-outline-danger"><i class="fas fa-cart-plus mr-2"></i>Add to
-                                    cart</a>
-                                <a href="./detail.html" class="card-title text-center mb-1 mt-2">Measure Tools</a>
-                                <p class="text-center my-0" style="color: #f60">$9.27</p>
-                                <!--                                        <p class="text-center my-0">
-                                                                                        <fmt:formatNumber value="9.27" type="currency"></fmt:formatNumber>
-                                                                                    </p>-->
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- end -->
-
-                    <!-- Show product -->
-
-                    <div class="col-md-3 mt-4 pt-2">
-                        <div class="card">
-
-
-                            <a href="./detail.html"><img th:src="@{/images/tools/3_0.jpg}" style="border: 1px solid #ededed;"
-                                                         class="card-img-top pt-4" alt="..."></a>
-                            <div class="card-body pt-3">
-                                <a href="#" class="btn btn-outline-danger"><i class="fas fa-cart-plus mr-2"></i>Add to
-                                    cart</a>
-                                <a href="./detail.html" class="card-title text-center mb-1 mt-2">Manual Screw</a>
-                                <p class="text-center my-0" style="color: #f60">$8.6</p>
-                                <!--                                        <p class="text-center my-0">
-                                                                                        <fmt:formatNumber value="8.6" type="currency"></fmt:formatNumber>
-                                                                                    </p>-->
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- end -->
-
-                    <!-- Show product -->
-
-                    <div class="col-md-3 mt-4 pt-2">
-                        <div class="card">
-
-
-                            <a href="./detail.html"><img th:src="@{/images/tools/4_0.jpg}" style="border: 1px solid #ededed;"
-                                                         class="card-img-top pt-4" alt="..."></a>
-                            <div class="card-body pt-3">
-                                <a href="#" class="btn btn-outline-danger"><i class="fas fa-cart-plus mr-2"></i>Add to
-                                    cart</a>
-                                <a href="./detail.html" class="card-title text-center mb-1 mt-2">Painting Brush</a>
-                                <p class="text-center my-0" style="color: #f60">$5.93</p>
-                                <!--                                        <p class="text-center my-0">
-                                                                                        <fmt:formatNumber value="5.93" type="currency"></fmt:formatNumber>
-                                                                                    </p>-->
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- end -->
-
-                    <!-- Show product -->
-
-                    <div class="col-md-3 mt-4 pt-2">
-                        <div class="card">
-
-
-                            <div id="DIV_1">
-                                <span id="SPAN_2"><i class="fas fa-bolt"></i></span>
-                            </div>
-
-                            <a href="./detail.html"><img th:src="@{/images/tools/5_0.jpg}" style="border: 1px solid #ededed;"
-                                                         class="card-img-top pt-4" alt="..."></a>
-                            <div class="card-body pt-3">
-                                <a href="#" class="btn btn-outline-danger"><i class="fas fa-cart-plus mr-2"></i>Add to
-                                    cart</a>
-                                <a href="./detail.html" class="card-title text-center mb-1 mt-2">Hiro Crimping
-                                    Pliers</a>
-                                <p class="text-center my-0" style="color: #f60">$15.36</p>
-                                <!--                                        <p class="text-center my-0">
-                                                                                        <fmt:formatNumber value="15.36" type="currency"></fmt:formatNumber>
-                                                                                    </p>-->
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- end -->
-
-                    <!-- Show product -->
-
-                    <div class="col-md-3 mt-4 pt-2">
-                        <div class="card">
-
-                            <div id="DIV_1">
-                                <span id="SPAN_2">15</span>
-                            </div>
-
-
-                            <a href="./detail.html"><img th:src="@{/images/tools/6_0.jpg}" style="border: 1px solid #ededed;"
-                                                         class="card-img-top pt-4" alt="..."></a>
-                            <div class="card-body pt-3">
-                                <a href="#" class="btn btn-outline-danger"><i class="fas fa-cart-plus mr-2"></i>Add to
-                                    cart</a>
-                                <a href="./detail.html" class="card-title text-center mb-1 mt-2">Stripping Pliers</a>
-                                <p class="text-center my-0" style="color: #f60">$12.42</p>
-                                <!--                                        <p class="text-center my-0">
-                                                                                        <fmt:formatNumber value="12.42" type="currency"></fmt:formatNumber>
-                                                                                    </p>-->
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- end -->
-
-                    <!-- Show product -->
-
-                    <div class="col-md-3 mt-4 pt-2">
-                        <div class="card">
-
-
-                            <div id="DIV_1">
-                                <span id="SPAN_2"><i class="fas fa-bolt"></i></span>
-                            </div>
-
-                            <a href="./detail.html"><img th:src="@{/images/tools/7_0.jpg}" style="border: 1px solid #ededed;"
-                                                         class="card-img-top pt-4" alt="..."></a>
-                            <div class="card-body pt-3">
-                                <a href="#" class="btn btn-outline-danger"><i class="fas fa-cart-plus mr-2"></i>Add to
-                                    cart</a>
-                                <a href="./detail.html" class="card-title text-center mb-1 mt-2">Steel Triangular</a>
-                                <p class="text-center my-0" style="color: #f60">$9.14</p>
-                                <!--                                        <p class="text-center my-0">
-                                                                                        <fmt:formatNumber value="9.14" type="currency"></fmt:formatNumber>
-                                                                                    </p>-->
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- end -->
-
-                    <!-- Show product -->
-
-                    <div class="col-md-3 mt-4 pt-2">
-                        <div class="card">
-
-                            <div id="DIV_1">
-                                <span id="SPAN_2">8</span>
-                            </div>
-
-
-                            <a href="./detail.html"><img th:src="@{/images/tools/8_0.jpg}" style="border: 1px solid #ededed;"
-                                                         class="card-img-top pt-4" alt="..."></a>
-                            <div class="card-body pt-3">
-                                <a href="#" class="btn btn-outline-danger"><i class="fas fa-cart-plus mr-2"></i>Add to
-                                    cart</a>
-                                <a href="./detail.html" class="card-title text-center mb-1 mt-2">Game Cube</a>
-                                <p class="text-center my-0" style="color: #f60">$9.25</p>
-                                <!--                                        <p class="text-center my-0">
-                                                                                        <fmt:formatNumber value="9.25" type="currency"></fmt:formatNumber>
-                                                                                    </p>-->
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- end -->
-
-                    <!-- Show product -->
-
-                    <div class="col-md-3 mt-4 pt-2">
-                        <div class="card">
-
-
-                            <a href="./detail.html"><img th:src="@{/images/tools/9_0.jpg}" style="border: 1px solid #ededed;"
-                                                         class="card-img-top pt-4" alt="..."></a>
-                            <div class="card-body pt-3">
-                                <a href="#" class="btn btn-outline-danger"><i class="fas fa-cart-plus mr-2"></i>Add to
-                                    cart</a>
-                                <a href="./detail.html" class="card-title text-center mb-1 mt-2">Cutting Saw</a>
-                                <p class="text-center my-0" style="color: #f60">$3.46</p>
-                                <!--                                        <p class="text-center my-0">
-                                                                                        <fmt:formatNumber value="3.46" type="currency"></fmt:formatNumber>
-                                                                                    </p>-->
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- end -->
-
-                    <!-- Show product -->
-
-                    <div class="col-md-3 mt-4 pt-2">
-                        <div class="card">
-
-                            <div id="DIV_1">
-                                <span id="SPAN_2">20</span>
-                            </div>
-
-
-                            <a href="./detail.html"><img th:src="@{/images/tools/10_0.jpg}" style="border: 1px solid #ededed;"
-                                                         class="card-img-top pt-4" alt="..."></a>
-                            <div class="card-body pt-3">
-                                <a href="#" class="btn btn-outline-danger"><i class="fas fa-cart-plus mr-2"></i>Add to
-                                    cart</a>
-                                <a href="./detail.html" class="card-title text-center mb-1 mt-2">Brush Point Paint</a>
-                                <p class="text-center my-0" style="color: #f60">$18.06</p>
-                                <!--                                        <p class="text-center my-0">
-                                                                                        <fmt:formatNumber value="18.06" type="currency"></fmt:formatNumber>
-                                                                                    </p>-->
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- end -->
-
-                    <!-- Show product -->
-
-                    <div class="col-md-3 mt-4 pt-2">
-                        <div class="card">
-
-                            <div id="DIV_1">
-                                <span id="SPAN_2">13</span>
-                            </div>
-
-
-                            <a href="./detail.html"><img th:src="@{/images/tools/11_0.jpg}" style="border: 1px solid #ededed;"
-                                                         class="card-img-top pt-4" alt="..."></a>
-                            <div class="card-body pt-3">
-                                <a href="#" class="btn btn-outline-danger"><i class="fas fa-cart-plus mr-2"></i>Add to
-                                    cart</a>
-                                <a href="./detail.html" class="card-title text-center mb-1 mt-2">Nozzle Water</a>
-                                <p class="text-center my-0" style="color: #f60">$14.15</p>
-                                <!--                                        <p class="text-center my-0">
-                                                                                        <fmt:formatNumber value="14.15" type="currency"></fmt:formatNumber>
-                                                                                    </p>-->
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- end -->
-
-                    <!-- Show product -->
-
-                    <div class="col-md-3 mt-4 pt-2">
-                        <div class="card">
-
-
-                            <a href="./detail.html"><img th:src="@{/images/tools/12_0.jpg}" style="border: 1px solid #ededed;"
-                                                         class="card-img-top pt-4" alt="..."></a>
-                            <div class="card-body pt-3">
-                                <a href="#" class="btn btn-outline-danger"><i class="fas fa-cart-plus mr-2"></i>Add to
-                                    cart</a>
-                                <a href="./detail.html" class="card-title text-center mb-1 mt-2">Plastic Car</a>
-                                <p class="text-center my-0" style="color: #f60">$12.81</p>
-                                <!--                                        <p class="text-center my-0">
-                                                                                        <fmt:formatNumber value="12.81" type="currency"></fmt:formatNumber>
-                                                                                    </p>-->
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- end -->
-
-                    <!-- Show product -->
-
-                    <div class="col-md-3 mt-4 pt-2">
-                        <div class="card">
-
-                            <div id="DIV_1">
-                                <span id="SPAN_2">10</span>
-                            </div>
-
-
-                            <a href="./detail.html"><img th:src="@{/images/tools/13_0.jpg}" style="border: 1px solid #ededed;"
-                                                         class="card-img-top pt-4" alt="..."></a>
-                            <div class="card-body pt-3">
-                                <a href="#" class="btn btn-outline-danger"><i class="fas fa-cart-plus mr-2"></i>Add to
-                                    cart</a>
-                                <a href="./detail.html" class="card-title text-center mb-1 mt-2">Screen Opening</a>
-                                <p class="text-center my-0" style="color: #f60">$12.07</p>
-                                <!--                                        <p class="text-center my-0">
-                                                                                        <fmt:formatNumber value="12.07" type="currency"></fmt:formatNumber>
-                                                                                    </p>-->
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- end -->
-
-                    <!-- Show product -->
-
-                    <div class="col-md-3 mt-4 pt-2">
-                        <div class="card">
-
-                            <div id="DIV_1">
-                                <span id="SPAN_2">10</span>
-                            </div>
-
-
-                            <a href="./detail.html"><img th:src="@{/images/tools/14_0.jpg}" style="border: 1px solid #ededed;"
-                                                         class="card-img-top pt-4" alt="..."></a>
-                            <div class="card-body pt-3">
-                                <a href="#" class="btn btn-outline-danger"><i class="fas fa-cart-plus mr-2"></i>Add to
-                                    cart</a>
-                                <a href="./detail.html" class="card-title text-center mb-1 mt-2">Mini Spade Shovel</a>
-                                <p class="text-center my-0" style="color: #f60">$12.34</p>
-                                <!--                                        <p class="text-center my-0">
-                                                                                        <fmt:formatNumber value="12.34" type="currency"></fmt:formatNumber>
-                                                                                    </p>-->
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- end -->
-
-                    <!-- Show product -->
-
-                    <div class="col-md-3 mt-4 pt-2">
-                        <div class="card">
-
-                            <div id="DIV_1">
-                                <span id="SPAN_2">2</span>
-                            </div>
-
-
-                            <a href="./detail.html"><img th:src="@{/images/tools/15_0.jpg}" style="border: 1px solid #ededed;"
-                                                         class="card-img-top pt-4" alt="..."></a>
-                            <div class="card-body pt-3">
-                                <a href="#" class="btn btn-outline-danger"><i class="fas fa-cart-plus mr-2"></i>Add to
-                                    cart</a>
-                                <a href="./detail.html" class="card-title text-center mb-1 mt-2">Separating Pliers </a>
-                                <p class="text-center my-0" style="color: #f60">$8.96</p>
-                                <!--                                        <p class="text-center my-0">
-                                                                                        <fmt:formatNumber value="8.96" type="currency"></fmt:formatNumber>
-                                                                                    </p>-->
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- end -->
-
-                    <!-- Show product -->
-
-                    <div class="col-md-3 mt-4 pt-2">
-                        <div class="card">
-
-                            <div id="DIV_1">
-                                <span id="SPAN_2">2</span>
-                            </div>
-
-
-                            <a href="./detail.html"><img th:src="@{/images/tools/16_0.jpg}" style="border: 1px solid #ededed;"
-                                                         class="card-img-top pt-4" alt="..."></a>
-                            <div class="card-body pt-3">
-                                <a href="#" class="btn btn-outline-danger"><i class="fas fa-cart-plus mr-2"></i>Add to
-                                    cart</a>
-                                <a href="./detail.html" class="card-title text-center mb-1 mt-2">Plasterboard Gypsum</a>
-                                <p class="text-center my-0" style="color: #f60">$6.9</p>
-                                <!--                                        <p class="text-center my-0">
-                                                                                        <fmt:formatNumber value="6.9" type="currency"></fmt:formatNumber>
-                                                                                    </p>-->
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- end -->
-
-                    <!-- Show product -->
-
-                    <div class="col-md-3 mt-4 pt-2">
-                        <div class="card">
-
-                            <div id="DIV_1">
-                                <span id="SPAN_2">9</span>
-                            </div>
-
-
-                            <a href="./detail.html"><img th:src="@{/images/tools/17_0.jpg}" style="border: 1px solid #ededed;"
-                                                         class="card-img-top pt-4" alt="..."></a>
-                            <div class="card-body pt-3">
-                                <a href="#" class="btn btn-outline-danger"><i class="fas fa-cart-plus mr-2"></i>Add to
-                                    cart</a>
-                                <a href="./detail.html" class="card-title text-center mb-1 mt-2">Cocktail Muddler</a>
-                                <p class="text-center my-0" style="color: #f60">$14.33</p>
-                                <!--                                        <p class="text-center my-0">
-                                                                                        <fmt:formatNumber value="14.33" type="currency"></fmt:formatNumber>
-                                                                                    </p>-->
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- end -->
-
-                    <!-- Show product -->
-
-                    <div class="col-md-3 mt-4 pt-2">
-                        <div class="card">
-
-
-                            <a href="./detail.html"><img th:src="@{/images/tools/18_0.jpg}" style="border: 1px solid #ededed;"
-                                                         class="card-img-top pt-4" alt="..."></a>
-                            <div class="card-body pt-3">
-                                <a href="#" class="btn btn-outline-danger"><i class="fas fa-cart-plus mr-2"></i>Add to
-                                    cart</a>
-                                <a href="./detail.html" class="card-title text-center mb-1 mt-2">Toolbox+Digital </a>
-                                <p class="text-center my-0" style="color: #f60">$6.59</p>
-                                <!--                                        <p class="text-center my-0">
-                                                                                        <fmt:formatNumber value="6.59" type="currency"></fmt:formatNumber>
-                                                                                    </p>-->
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- end -->
-
-                    <!-- Show product -->
-
-                    <div class="col-md-3 mt-4 pt-2">
-                        <div class="card">
-
-                            <div id="DIV_1">
-                                <span id="SPAN_2">15</span>
-                            </div>
-
-
-                            <a href="./detail.html"><img th:src="@{/images/tools/19_0.jpg}" style="border: 1px solid #ededed;"
-                                                         class="card-img-top pt-4" alt="..."></a>
-                            <div class="card-body pt-3">
-                                <a href="#" class="btn btn-outline-danger"><i class="fas fa-cart-plus mr-2"></i>Add to
-                                    cart</a>
-                                <a href="./detail.html" class="card-title text-center mb-1 mt-2">Stainless Steel</a>
-                                <p class="text-center my-0" style="color: #f60">$10.36</p>
-                                <!--                                        <p class="text-center my-0">
-                                                                                        <fmt:formatNumber value="10.36" type="currency"></fmt:formatNumber>
-                                                                                    </p>-->
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- end -->
-
-                    <!-- Show product -->
-
-                    <div class="col-md-3 mt-4 pt-2">
-                        <div class="card">
-
-
-                            <a href="./detail.html"><img th:src="@{/images/tools/20_0.jpg}" style="border: 1px solid #ededed;"
-                                                         class="card-img-top pt-4" alt="..."></a>
-                            <div class="card-body pt-3">
-                                <a href="#" class="btn btn-outline-danger"><i class="fas fa-cart-plus mr-2"></i>Add to
-                                    cart</a>
-                                <a href="./detail.html" class="card-title text-center mb-1 mt-2">Screwdriver Bit</a>
-                                <p class="text-center my-0" style="color: #f60">$9.59</p>
-                                <!--                                        <p class="text-center my-0">
-                                                                                        <fmt:formatNumber value="9.59" type="currency"></fmt:formatNumber>
-                                                                                    </p>-->
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- end -->
-
-
-
-
                 </div>
 
 
-
-
-
-
-                <nav aria-label="Page navigation example">
+                <nav th:if="${totalPage}>1" aria-label="Page navigation example">
                     <ul class="pagination justify-content-end">
-                        <li class="page-item disabled">
-                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-                        </li>
-
-                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-
-                        <li class="page-item "><a class="page-link" href="#">2</a></li>
-
-                        <li class="page-item "><a class="page-link" href="#">3</a></li>
-
-                        <li class="page-item ">
-                            <a class=" page-link" href="#">Next</a>
+                        <li th:each="index: ${#numbers.sequence(1, totalPage)}" class="page-item"
+                            th:classappend="(${page}==*{index})?'active':''">
+                            <a class="page-link" th:href="@{'/products?page='+*{index}}" th:text="*{index}">1</a>
                         </li>
                     </ul>
                 </nav>
-
 
 
             </div>
@@ -758,7 +146,6 @@
         </div>
     </div>
 </div>
-
 
 
 <div id="product-footer" th:replace="~{/fragments/app-fragments :: copyright}">

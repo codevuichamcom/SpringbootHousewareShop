@@ -1,5 +1,6 @@
 package com.example.housewareshopproject;
 
+import com.example.housewareshopproject.entity.Product;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
